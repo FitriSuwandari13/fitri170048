@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="https://example.com/Text_Preprocessing/">
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>**Text Preprocessing** - My Docs</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">My Docs</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href=".." class="nav-link">Welcome to MkDocs</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../Modelling/" class="nav-link">Modelling</a>
+                            </li>
+                            <li class="navitem active">
+                                <a href="./" class="nav-link">**Text Preprocessing**</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../Web_Crawling/" class="nav-link">Web Crawling</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../Modelling/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../Web_Crawling/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#text-preprocessing" class="nav-link">Text Preprocessing</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#natural-languange-toolkit-nlkt" class="nav-link">Natural Languange Toolkit (NLKT)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#case-folding" class="nav-link">Case Folding</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#tokenizing" class="nav-link">Tokenizing</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#stopword" class="nav-link">Stopword</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#stemming" class="nav-link">Stemming</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#referensi" class="nav-link">Referensi</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="text-preprocessing"><strong>Text Preprocessing</strong></h1>
+<p>Data teks perlu dibersihkan dan dikodekan ke nilai numerik sebelum diberikan ke model pembelajaran mesin, proses pembersihan dan pengkodean ini disebut sebagai preprocessing teks.Perlu dipersiapkan untuk library ini yakni natural language toolkit atau disingkat nltk yang merupakan library Python dengan pemodelan teks nltk ini juga menyediakan alat yang sebelum digunakan pada mesin learning atau Algo algoritma Deep learning untuk menginstal nltk menggunakan pip pada command Line atau terminal </p>
+<h2 id="natural-languange-toolkit-nlkt">Natural Languange Toolkit (NLKT)</h2>
+<p>Perlu dipersiapkan untuk library ini yakni natural language toolkit atau disingkat nltk yang merupakan library Python dengan pemodelan teks nltk ini juga menyediakan alat yang sebelum digunakan pada mesin learning atau Algo algoritma Deep learning untuk menginstal nltk menggunakan pip pada command Line atau terminal       </p>
+<p><code>pip install nltk</code></p>
+<p>Sebelum menginstal nltk user harus mengunduh paket nltk </p>
+<p><code>import nltk</code></p>
+<p><code>nltk.download()</code></p>
+<h2 id="case-folding">Case Folding</h2>
+<p>Text Processing yang sederhana dan efektif yang mempunyai tujuan untuk merubah semua huruf didalam dokumen menjadi huruf kecil abjad huruf a sampai z yang diterima karakter selain objek tersebut dihilangkan dan diangkat delimiter.</p>
+<h3 id="mengubah-text-menjadi-lowercase">Mengubah text menjadi lowercase</h3>
+<p>mesin pencarian sangatlah penting contohnya untuk mencari dokumen yang mengandung Indonesia namun tidak ada yang muncul karena indonesia di indeks sebagai INDONESIA. </p>
+<p>Ini contoh source code Python untuk mengubah teks menjadi lower case</p>
+<p><code>kalimat = "Berikut ini adalah 5 negara dengan pendidikan terbaik di dunia adalah Korea Selatan, Jepang, Singapura, Hong Kong, dan Finlandia."</code></p>
+<p><code>lower_case = kalimat.lower()</code></p>
+<p><code>print(lower_case)</code></p>
+<p><code>#output</code></p>
+<p><code>#berikut ini adalah 5 negara dengan pendidikan terbaik di dunia adalah korea selatan, jepang, singapura, hong kong, dan finlandia.</code></p>
+<h3 id="menghapus-angka"><strong>Menghapus angka</strong></h3>
+<p>Tulisan angka yang tidak relevan dengan apa yang akan dianalisa seperti nomor rumah nomor telepon dan lain-lain regular expression dapat juga digunakan untuk menghapus karakter angkaContoh source code paytren untuk menghapus angka dalam sebuah kalimat</p>
+<p><code>import re # impor modul regular expression</code></p>
+<p><code>kalimat = "Berikut ini adalah 5 negara dengan pendidikan terbaik di dunia adalah Korea Selatan, Jepang, Singapura, Hong Kong, dan Finlandia."</code></p>
+<p><code>hasil = re.sub(r"\d+", "", kalimat)</code></p>
+<p><code>print(hasil)</code></p>
+<p><code># ouput</code></p>
+<p><code># Berikut ini adalah negara dengan pendidikan terbaik di dunia adalah Korea Selatan, Jepang, Singapura, Hong Kong, dan Finlandia.</code></p>
+<h3 id="menghapus-tanda-baca"><strong>Menghapus tanda baca</strong></h3>
+<p>Sama halnya dengan angka, tanda baca dalam kalimat tidak memiliki pengaruh pada text preprocessing. Menghapus tanda baca seperti [!”#$%&amp;’()*+,-./:;&lt;=&gt;?@[]^_`{|}~] dapat dilakukan di pyhton seperti dibawah ini :</p>
+<p><code>kalimat = "Ini &amp;adalah [contoh] kalimat? {dengan} tanda. baca?!!"</code></p>
+<p><code>hasil = kalimat.translate(str.maketrans("","",string.punctuation))</code></p>
+<p><code>print(hasil)</code></p>
+<p><code># output</code></p>
+<p><code># Ini adalah contoh kalimat dengan tanda baca</code></p>
+<h3 id="menghapus-whitepace-karakter-kosong"><strong>Menghapus whitepace (karakter kosong)</strong></h3>
+<p>Untuk menghapus spasi di awal dan akhir, anda dapat menggunakan fungsi strip()pada pyhton. Perhatikan kode dibawah ini :</p>
+<p><code>kalimat = " \t ini kalimat contoh\t "</code></p>
+<p><code>hasil = kalimat.strip()print(hasil)</code></p>
+<p><code># output</code></p>
+<p><code># ini kalimat contoh</code></p>
+<h2 id="tokenizing">Tokenizing</h2>
+<p>Merupakan proses teks menjadi potongan-potongan yang disebut token yang akan dianalisa kata angka simbol dan tanda baca yang memiliki entitas penting dianggap sebagai tokenFungsi split()pada pyhton dapat digunakan untuk memisahkan teks. Perhatikan contoh dibawah ini :</p>
+<p><code>kalimat = "rumah idaman adalah rumah yang bersih"</code></p>
+<p><code>pisah = kalimat.split()</code></p>
+<p><code>print(pisah)</code></p>
+<p>Macam-macam Tokenizing:</p>
+<h3 id="tokenizing-kata">Tokenizing kata</h3>
+<p>Kalimat atau data dapat dipisahkan menjadi kata-kata yang memiliki kelas <code>word_tokenize()</code> di dalam modul NLTK.</p>
+<pre><code># impor word_tokenize dari modul nltk
+from nltk.tokenize import word_tokenize 
+
+kalimat = &quot;Andi kerap melakukan transaksi rutin secara daring atau online.&quot;
+
+tokens = nltk.tokenize.word_tokenize(kalimat)
+print(tokens)# ouput 
+# ['Andi', 'kerap', 'melakukan', 'transaksi', 'rutin', 'secara', 'daring', 'atau', 'online', '.']
+</code></pre>
+<p>dari output tersebut terdapat kemunculan tanda baca titik dan koma dan juga token "Andi" menggunakan huruf kapital. Alangkah lebih baiknya teks harus melewati case folding untuk menghasilkan hasil yang konsisten.</p>
+<p>salah satu fungsi case folding sebagai penghilang tanda baca serta mengubah teks ke bentuk lowercase.</p>
+<pre><code>kalimat = kalimat.translate(str.maketrans('','',string.punctuation)).lower()
+# output
+# ['andi', 'kerap', 'melakukan', 'transaksi', 'rutin', 'secara', 'daring', 'atau', 'online']
+</code></pre>
+<h3 id="tokenizing-kalimat">Tokenizing kalimat</h3>
+<p>Untuk memisahkan kalimat di dalam pararaf menggunakan <code>sent_tokenize</code>() di dalam modul NLTK, seperti contoh di bawah ini:</p>
+<pre><code>kalimat = kalimat.translate(str.maketrans('','',string.punctuation)).lower()
+# output
+# ['andi', 'kerap', 'melakukan', 'transaksi', 'rutin', 'secara', 'daring', 'atau', 'online']
+</code></pre>
+<h2 id="stopword">Stopword</h2>
+<p>Stopword merupakan kata umum yang sering muncul dalam jumlah yang besar dan tidak mempunyai makna. Contoh <em>stopword</em> dalam bahasa Indonesia adalah “yang”, “dan”, “di”, “dari”, dll.</p>
+<pre><code>from nltk.tokenize import sent_tokenize, word_tokenize
+from nltk.corpus import stopwords
+
+kalimat = &quot;Andi kerap melakukan transaksi rutin secara daring atau online. Menurut Andi belanja online lebih praktis &amp; murah.&quot;
+kalimat = kalimat.translate(str.maketrans('','',string.punctuation)).lower()
+
+tokens = word_tokenize(kalimat)
+listStopword =  set(stopwords.words('indonesian'))
+
+removed = []
+for t in tokens:
+    if t not in listStopword:
+        removed.append(t)
+
+print(removed)# ouput
+# ['andi', 'kerap', 'transaksi', 'rutin', 'daring', 'online', 'andi', 'belanja', 'online', 'praktis', 'murah']
+</code></pre>
+<h2 id="stemming">Stemming</h2>
+<p>Stemming adalah proses menghilangkan tatanan kata ke bentuk dasar semulanya. contohnya "membaca", "membacakan" akan diubah menjadi "baca".</p>
+<h3 id="stemming-dengan-nltk-bahasa-inggris">Stemming dengan NLTK (bahasa inggris)</h3>
+<p>Algoritma stemming yang sering digunakan adalah <code>PorterStemmer()</code></p>
+<pre><code>from nltk.stem import PorterStemmer 
+
+ps = PorterStemmer() 
+
+kata = [&quot;program&quot;, &quot;programs&quot;, &quot;programer&quot;, &quot;programing&quot;, &quot;programers&quot;] 
+
+for k in kata: 
+    print(k, &quot; : &quot;, ps.stem(k))# ouput
+# program  :  program
+programs  :  program
+programer  :  program
+programing  :  program
+programers  :  program
+</code></pre>
+<h3 id="stemming-bahasa-indonesia-menggunakan-python-sastrawi">Stemming bahasa Indonesia menggunakan Python Sastrawi</h3>
+<p>Di dalam teks berbahasa inggris, proses yang paling penting yaitu penghilangan sufiks. Di dalam bahasa Indonesia kata imbuhan sufiks dan prefiks dihilangkan juga. </p>
+<pre><code>from Sastrawi.Stemmer.StemmerFactory import StemmerFactoryfactory = StemmerFactory()
+stemmer = factory.create_stemmer()
+
+kalimat = &quot;Andi kerap melakukan transaksi rutin secara daring atau online. Menurut Andi belanja online lebih praktis &amp; murah.&quot;hasil = stemmer.stem(kalimat)print(hasil)# ouput
+# andi kerap laku transaksi rutin cara daring atau online turut andi belanja online lebih praktis murah
+</code></pre>
+<p>Source Code Tugas Kuliah Web Mining</p>
+<p>import pandas as pd
+import re
+import csv
+import string</p>
+<p>df = pd.read_csv('dataTrain.csv', encoding='utf-8')
+df = df['sentences'].str.lower()</p>
+<p>emoticons_str = r"""
+    (?:
+        [:=;] # Eyes
+        [oO-]? # Nose (optional)
+        [D)](]/\OpP] # Mouth
+    )"""</p>
+<p>regex_str = [
+    emoticons_str,
+    r'&lt;[^&gt;]+&gt;', # HTML tags
+    r'(?:@[\w_]+)', # @-mentions
+    r"(?:#+[\w_]+[\w\'_-]<em>[\w_]+)", # hash-tags
+    r'http[s]?://(?:[a-z]|[0-9]|[$-_@.&amp;+]|[!</em>(),]|(?:%[0-9a-f][0-9a-f]))+', # URLs</p>
+<pre><code>r'(?:(?:\d+,?)+(?:\.?\d+)?)', # numbers
+r"(?:[a-z][a-z'\-\_]+[a-z])", # words with - and '
+r'(?:[\w_]+)', # other words
+r'(?:\S)' # anything else
+</code></pre>
+<p>]</p>
+<p>tokens_re = re.compile(r'('+'|'.join(regex_str)+')', re.VERBOSE | re.IGNORECASE)
+emoticon_re = re.compile(r'^'+emoticons_str+'$', re.VERBOSE | re.IGNORECASE)</p>
+<p>def tokenize(s):
+    return tokens_re.findall(s)</p>
+<p>def preproses(s, lowercase=False):
+    tokens = tokenize(s)
+    filtered_words = [w for w in tokens]
+    filt = " ".join(filtered_words)
+    filt = re.sub(r"http\S+|www\S+|https\S+", '', filt, flags=re.MULTILINE) # URLs
+    filt = re.sub(r'@[\w_]+','', filt) # @-mentions
+    filt = re.sub(r"(?:#+[\w_]+[\w\'<em>-]*[\w</em>]+)", '', filt) #hash-tags
+    filt = re.sub(r"\d+", "", filt) # angka
+    filt = filt.translate(str.maketrans('','',string.punctuation)) # hapus tanda baca
+    return filt</p>
+<p>def removeNonWord(doc):
+    result = doc.replace({'[\W_]+': ' '}, regex=True)
+    return result[result.notnull()]</p>
+<p>def writeToCsv():
+    count_row = df.shape[0]</p>
+<pre><code>with open('dataTest.csv', 'w', encoding='utf-8') as file:
+    w = csv.writer(file)
+    w.writerow(['sentences']) #menulis baris header
+
+    for i in range(count_row):
+        x = preproses(df.loc[i])
+        x = x.strip()
+        w.writerow([x])
+</code></pre>
+<p><code>writeToCsv()</code>
+<code>doc = pd.read_csv('dataTest.csv', encoding='utf-8')</code>
+<code>doc = doc['sentences'].str.lower()</code>
+<code>doc = removeNonWord(doc)</code></p>
+<p><code>doc.to_csv(r'dataTest.csv', index = False)</code>
+<code>print('Output saved in "dataTest.csv"')</code></p>
+<h2 id="referensi">Referensi</h2>
+<ol>
+<li>Adriani, M., Asian, J., Nazief, B., Tahaghoghi, S. M. M., &amp; Williams, H. E. (2007). Stemming Indonesian. ACM Transactions on Asian Language Information Processing, 6(4), 1–33.</li>
+<li>Tala, Fadillah Z.(1999). <em>A Study of Stemming Effect on Information Retrieval in </em>Bahasa Indonesia.</li>
+<li>Geovedi, Jim.(2014).Karena Data Gak Mungkin Bohong dan karena Bisa Diolah Sesuai Pesanan (<a href="https://medium.com/curahan-rekanalar/karena-data-gak-mungkin-bohong-a17ff90cef87">https://medium.com/curahan-rekanalar/karena-data-gak-mungkin-bohong-a17ff90cef87</a>).</li>
+<li>Python Sastrawi (<a href="https://github.com/har07/PySastrawi">https://github.com/har07/PySastrawi</a>).</li>
+<li>Natural Language Toolkit -NLTK (<a href="https://www.nltk.org/">https://www.nltk.org</a>).</li>
+<li>Matplotlib (<a href="https://matplotlib.org/">https://matplotlib.org</a>).</li>
+</ol></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js" defer></script>
+        <script src="../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

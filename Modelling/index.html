@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="https://example.com/Modelling/">
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Modelling - My Docs</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">My Docs</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href=".." class="nav-link">Welcome to MkDocs</a>
+                            </li>
+                            <li class="navitem active">
+                                <a href="./" class="nav-link">Modelling</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../Text_Preprocessing/" class="nav-link">**Text Preprocessing**</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../Web_Crawling/" class="nav-link">Web Crawling</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href=".." class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../Text_Preprocessing/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#modelling" class="nav-link">Modelling</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#clusterring" class="nav-link">Clusterring</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#classification" class="nav-link">Classification</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#referensi" class="nav-link">Referensi</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="modelling">Modelling</h1>
+<h2 id="clusterring">Clusterring</h2>
+<p>Clusterring merupakan tugas deskripsi yang digunakan untuk himpunan terbatas untuk mendeskripsikan data yang diolah</p>
+<p>Tujuan metode ini adalah mengelompokkan data yang homogen/sejenis sehingga data yang berada di cluster yang sama mempunyai banyak kesamaan dibanding dengan data yang ada di cluster yang berbeda.</p>
+<p>Source code untuk clustering :</p>
+<p>import library pandas dan inisialisasikan menjadi pd</p>
+<p>import pandas as pd</p>
+<p><code>import library numpy dan inisialisasikan menjadi np</code></p>
+<p><code>import numpy as np</code></p>
+<p><code>dari library math import function log</code></p>
+<p><code>from math import log</code></p>
+<p><code>dari library sklearn fitur ekstrasi teks import CountVectorizer</code></p>
+<p><code>from sklearn.feature_extraction.text import CountVectorizer</code></p>
+<p><code>fungsi untuk menghitung idf</code></p>
+<p><code>def idf(doc, wordBank):</code>
+    #hitung jumlah doc
+    N = len(doc.index)
+    #buat dataframe dengan header word dan idf
+    result = pd.DataFrame(columns=['word', 'idf'])
+    #untuk setiap kata pada wordBank lakukan.....
+    for index, word in wordBank.iterrows():
+        #hitung jumlah doc yang mengandung kata word['words']
+        dft = np.sum(doc.str.contains(word['kata']))
+        #hitung inverse document frequency smooth
+        idft = log(N / (dft + 1), 10)
+        #tambahkan idf untuk setiap kata pada data frame
+        result = result.append(pd.Series([word['kata'],  idft], index=['word', 'idf']), ignore_index=True)
+    #return variable result
+    return result</p>
+<p><code>fungsi untuk menghitung tf``def tf(doc, wordBank):</code></p>
+<pre><code>#split kata berdasarkan spasi
+wordList = doc.str.split(' ')
+#hitung jumlah kata pada setiap doc
+maxFt = [len(s)  for s in wordList]
+#buat DataFrame kosong untuk menyimpan hasil perhitungan Tf
+result = pd.DataFrame()
+#untuk setiap word dalam wordbank lakukan ....
+for index, word in wordBank.iterrows():
+    #hitung frekuensi kata untuk setiap doc
+    ft = np.add([s.count(word['kata']) for s in wordList], 0)
+    #tf log normalization
+    ftd = 1 + np.log10(ft+1e-15)
+    #tambahkan hasil perhitungan tf kedalam DataFrame
+    result = result.append(pd.Series(ftd), ignore_index=True)
+#mengganti -inf dengan 0
+result = result.replace(-np.inf, 0)
+#return variable result
+return result
+</code></pre>
+<p><code>def tfIdf(tf, idf):</code>
+    #buat DataFrame kosong untuk menyimpan hasil perhitungan Tf-Idf
+    result = pd.DataFrame()
+    #untuk setiap tf
+    for i in tf:
+        #tf idf untuk document term weighting tf * idf
+        tfIdf = tf[i] * idf['idf']
+        #tambahkan hasil perhitungan tf idf kedalam DataFrame
+        result = result.append(pd.Series(tfIdf), ignore_index=True)
+    #return variable result
+    return result</p>
+<p><code>membaca file dataTest.csv menggunakan pandas</code></p>
+<p><code>doc = pd.read_csv('dataTest.csv', encoding='utf-8')</code></p>
+<p><code>membaca file wordBank.csv</code></p>
+<p><code>wordBank.csv berisi kata-kata penting atau keywords yang dianggap relevan dengan topik dalam sebuah kasus</code></p>
+<p><code>vocabulary = pd.read_csv('wordBank.csv', encoding='utf-8')</code></p>
+<p><code>ubah seluruh objek menjadi str/string</code></p>
+<p><code>doc = doc['sentences'].str.lower()</code></p>
+<p><code>mengonversi teks menjadi vektor jumlah kata</code></p>
+<p><code>count = CountVectorizer()</code>
+<code>bag = count.fit_transform(doc)</code></p>
+<p><code>print(bag)</code></p>
+<p><code>melihat fitur kata</code></p>
+<p><code>a=count.get_feature_names()</code></p>
+<p><code>print(a)</code></p>
+<p><code>hitung nilai IDF</code></p>
+<p><code>resultIDF = idf(doc, vocabulary)</code>
+<code>print('\n'+'Hasil perhitungan nilai IDF')</code>
+<code>print(resultIDF)</code></p>
+<p><code>cetak hasil IDF</code></p>
+<p><code>resultIDF.to_csv(r'nilaiIDF.csv', index = False)</code>
+<code>print('Output saved in "nilaiIDF.csv"')</code></p>
+<p><code>hitung nilai TF</code></p>
+<p><code>resultTF = tf(doc, vocabulary)</code>
+<code>print('\n'+'Hasil perhitungan nilai TF')</code>
+<code>print(resultTF)</code></p>
+<p><code>cetak hasil TF</code></p>
+<p><code>resultTF.to_csv(r'nilaiTF.csv', index = False)</code>
+<code>print('Output saved in "nilaiTF.csv"')</code></p>
+<p><code>hitung nilai Tf-Idf</code></p>
+<p><code>resultTfIdf = tfIdf(resultTF, resultIDF)</code>
+<code>print('\n'+'Hasil perhitungan nilai Tf-Idf')</code>
+<code>print(resultTfIdf)</code></p>
+<p><code>cetak hasil Tf-Idf</code></p>
+<p><code>resultTfIdf.to_csv(r'VSM(TF-IDF).csv', index = False)</code>
+<code>print('Output saved in "VSM(TF-IDF).csv"')</code></p>
+<h2 id="classification">Classification</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Classification adalah metode yang paling umum pada data mining. Persoalan bisnis sperti Churn Analysis, dan Risk Management biasanya melibatkan metode Classification.Classification adalah tindakan untuk memberikan kelompok pada setiap keadaan. Setiap keadaan berisi sekelompok atribut, salah satunya adalah class attribute. Metode ini butuh untuk menemukan sebuah model yang dapat menjelaskan class attribute itu sebagai fungsi dari input attribute.</td>
+</tr>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="referensi">Referensi</h2>
+<p>https://glints.com/id/lowongan/web-crawling-adalah/#.YMFsiKgzbIU</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js" defer></script>
+        <script src="../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
